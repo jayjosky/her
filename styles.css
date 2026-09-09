@@ -242,8 +242,36 @@
   }
   .c-card .c-label{font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft);margin-bottom:4px;}
   .c-card .c-value{font-size:16px;font-weight:500;}
+
+  .c-info{
+    display:flex;align-items:center;gap:16px;background:var(--bone);
+    border:1px dashed var(--line);border-radius:16px;padding:22px 24px;
+    cursor:default;
+  }
+  .c-info .c-icon-square{border-radius:10px;background:var(--card);}
+  .c-info .c-label{font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft);margin-bottom:4px;}
+  .c-info .c-value{font-size:16px;font-weight:500;}
   .contact-media{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);}
   .contact-media img{width:100%;height:100%;object-fit:cover;min-height:420px;}
+
+  /* ---- contact form ---- */
+  .contact-form{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:40px;margin-top:8px;max-width:760px;}
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .form-field{margin-bottom:20px;display:flex;flex-direction:column;gap:8px;}
+  .form-field label{font-family:'IBM Plex Mono',monospace;font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft);}
+  .form-field input,.form-field textarea{
+    font-family:'IBM Plex Sans',sans-serif;font-size:15px;color:var(--ink);
+    background:#FFFFFF;border:1.5px solid var(--line);border-radius:12px;padding:13px 16px;
+    transition:border-color .15s ease;resize:vertical;
+  }
+  .form-field input:focus,.form-field textarea:focus{outline:none;border-color:var(--blue);}
+  .form-field input::placeholder,.form-field textarea::placeholder{color:var(--ink-soft);opacity:0.6;}
+  .contact-form .btn{border:none;}
+  .contact-form .btn:disabled{opacity:0.6;cursor:default;transform:none;}
+  .form-status{margin-top:16px;font-size:14px;font-weight:600;min-height:1.4em;}
+  .form-status.sending{color:var(--ink-soft);font-weight:500;}
+  .form-status.success{color:var(--green-deep);}
+  .form-status.error{color:var(--blue-deep);}
 
   @media (max-width:920px){
     nav.links{position:fixed;top:78px;left:0;right:0;background:var(--bone);
@@ -264,6 +292,8 @@
     .program-row,.program-row.reverse{grid-template-columns:1fr;}
     .program-row.reverse .p-text,.program-row.reverse .p-media{order:0;}
     .contact-grid{grid-template-columns:1fr;}
+    .form-grid{grid-template-columns:1fr;}
+    .contact-form{padding:28px 22px;}
     .foot-grid{grid-template-columns:1fr;gap:34px;}
     .cta-band{padding:40px 28px;}
     .stats-strip{justify-content:flex-start;}
