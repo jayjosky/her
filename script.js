@@ -1,18 +1,30 @@
-var routes = ['home','about','programs','contact'];
-  function render(){
-    var hash = (location.hash || '#home').replace('#','');
-    if(routes.indexOf(hash) === -1) hash = 'home';
-    routes.forEach(function(r){
-      document.getElementById('page-'+r).classList.toggle('active', r === hash);
-    });
-    document.querySelectorAll('nav.links a').forEach(function(a){
-      a.classList.toggle('active', a.getAttribute('data-route') === hash);
-    });
-    document.getElementById('navLinks').classList.remove('open');
-    window.scrollTo({top:0, behavior:'instant' in window ? 'instant' : 'auto'});
-  }
-  window.addEventListener('hashchange', render);
-  document.getElementById('menuToggle').addEventListener('click', function(){
-    document.getElementById('navLinks').classList.toggle('open');
+(function () {
+  var path = location.pathname.split('/').pop() || 'index.html';
+  var routeMap = {
+    'index.html': 'home',
+    '': 'home',
+    'about.html': 'about',
+    'programs.html': 'programs',
+    'impact.html': 'impact',
+    'contact.html': 'contact'
+  };
+  var current = routeMap[path] || 'home';
+
+  document.querySelectorAll('nav.links a').forEach(function (a) {
+    a.classList.toggle('active', a.getAttribute('data-route') === current);
   });
-  render();
+
+  var menuToggle = document.getElementById('menuToggle');
+  var navLinks = document.getElementById('navLinks');
+
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', function () {
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        navLinks.classList.remove('open');
+      });
+    });
+  }
+})();
