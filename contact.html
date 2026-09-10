@@ -105,6 +105,21 @@
       </form>
     </section>
 
+    <section class="block tight" style="padding-top:0;">
+      <div class="section-head">
+        <div class="eyebrow">Find us</div>
+        <h2>Kalobeyei Integrated Settlement, Turkana County</h2>
+      </div>
+      <div class="map-panel">
+        <iframe
+          src="https://www.google.com/maps?q=Kalobeyei+Integrated+Settlement,+Turkana+County,+Kenya&output=embed"
+          width="100%" height="420" style="border:0;" allowfullscreen=""
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="Map showing Kalobeyei Integrated Settlement, Turkana County, Kenya">
+        </iframe>
+      </div>
+    </section>
+
 </main>
 
 <footer>
@@ -144,8 +159,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
   (function () {
-    // TODO: replace with your EmailJS public key (dashboard.emailjs.com/admin/account)
-    emailjs.init({ publicKey: 'YOUR_PUBLIC_KEY' });
+    emailjs.init({ publicKey: '0qDZU_hJUYFo9CYWk' });
 
     var form = document.getElementById('contactForm');
     var statusEl = document.getElementById('cfStatus');
@@ -157,9 +171,7 @@
       statusEl.className = 'form-status sending';
       submitBtn.disabled = true;
 
-      // TODO: replace YOUR_SERVICE_ID and YOUR_TEMPLATE_ID with your EmailJS values.
-      // Your EmailJS template should use these variables: {{name}}, {{email}}, {{subject}}, {{message}}
-      emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form).then(
+      emailjs.sendForm('service_2j6krvw', 'template_17prah6', form).then(
         function () {
           statusEl.textContent = "Message sent \u2014 thank you! We'll get back to you soon.";
           statusEl.className = 'form-status success';
